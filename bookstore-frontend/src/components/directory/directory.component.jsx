@@ -1,29 +1,42 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import "./directory.styles.scss";
+
 import {setSection} from '../../redux/section/section.actions';
 
+import {apiEndpoint} from '../../config/config.json';
+
+import MenuItem from '../directory-menu/menu-item.component';
 
 class Directory extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
-    componentDidMount() {
-        
+    async componentDidMount() {
+        const {setSection} = this.props;
+        try {
+            await fetch(apiEndpoint)
+                .then(response => response.json())
+                .then(data => setSection(data));
+        }catch(error) {
+            alert("ERROR... cdm");
+        }
     }
 
     render() {
         return(
             <div className="directory">
-                <h2>Directory Menu</h2>
+                {
+                    this.props.sections.map(({id, ...rest}) => (
+                        <MenuItem key={id} {...rest} />
+                    ))
+                }
             </div>
         );
     }
 }
 
-const mapStateToProps = ({section : {section}}) => ({
-    section 
+const mapStateToProps = ({section : {sections}}) => ({
+    sections
 });
 
 

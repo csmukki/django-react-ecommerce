@@ -1,7 +1,7 @@
 import { sectionTypes } from "./section.types";
 
 const INITIAL_STATE = {
-  section: [],
+  sections: [],
 };
 
 export const sectionReducer = (state = INITIAL_STATE, action) => {
@@ -9,7 +9,7 @@ export const sectionReducer = (state = INITIAL_STATE, action) => {
     case sectionTypes.SET_SECTION:
       return {
         ...state,
-        section: action.payload,
+        sections: action.payload,
       };
     default:
       return state;
