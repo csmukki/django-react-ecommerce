@@ -9,6 +9,8 @@ import logo from '../../assets/header-icon.webp';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { auth } from '../../firebase/firebase.utils';
 
 
 const Header = ({currentUser, hidden}) => (
@@ -21,7 +23,9 @@ const Header = ({currentUser, hidden}) => (
             <Link to="/contact" className="option">Contact</Link>
             {
                 currentUser ? (
-                    <div className="option">Sign Out</div>
+                    <div className="option"
+                        onClick={() => auth.signOut()}
+                    >Sign Out</div>
                 ) :(
                     <Link className="option" to="/sign-in">Sign In</Link>
                 )
@@ -36,6 +40,7 @@ const Header = ({currentUser, hidden}) => (
 
 const mapStateToProps = createStructuredSelector({
     hidden: selectHidden, 
+    currentUser: selectCurrentUser
 });
 
 export default connect(mapStateToProps, null)(Header);

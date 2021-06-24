@@ -2,19 +2,21 @@ import React from 'react';
 import CustomInput from '../custom-input/custom-input.component';
 import { connect } from 'react-redux';
 
-import {auth} from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import { setUserSignIn } from '../../redux/auth/auth.actions';
 import { createStructuredSelector } from 'reselect';
-import { selectSignInEmailField, selectSignInPasswordField } from '../../redux/auth/auth.selectors';
+import { selectSignIn, selectSignInEmailField, selectSignInPasswordField } from '../../redux/auth/auth.selectors';
 
 
 class SignIn extends React.Component {
 
     handleChange = event => {
         const {name, value} = event.currentTarget;
-        const {email, password} = this.props;
-        const data = {email, password};
-        data[name] = value;
+        const {signIn} = this.props;
+        const data = {
+            ...signIn, 
+            [name]: value 
+        };
         this.props.setUserSignIn(data);
     };
 
@@ -49,7 +51,9 @@ class SignIn extends React.Component {
                         <button 
                             onClick={() => auth.signInWithEmailAndPassword(email, password)}
                         >Sign In</button>
-                        <button>Sign in with google</button>
+                        <button onClick={
+                            () => signInWithGoogle()
+                        }>Sign in with google</button>
                     </div>
                 </form>
             </div>
@@ -59,7 +63,8 @@ class SignIn extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
     email: selectSignInEmailField, 
-    password: selectSignInPasswordField
+    password: selectSignInPasswordField, 
+    signIn: selectSignIn
 });
 
 

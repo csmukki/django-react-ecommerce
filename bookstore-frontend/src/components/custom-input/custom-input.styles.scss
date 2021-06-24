@@ -51,4 +51,14 @@ $main-color: black;
       @include shrinkLabel();
     }
   }
+
+  .error-message {
+    background: lightpink;
+    margin: 10px auto;
+    padding: auto auto;
+    color: purple;
+    font-style: italic;
+    font-weight: 600;
+    height: 30px;
+  }
 }

@@ -13,8 +13,34 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+
+var provider = new firebase.auth.GoogleAuthProvider();
+
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export async function createUserProfileDocument(authUser, ...additionalData) {
+  if (!authUser) return null;
+
+  const userRef = firestore.doc(`users/${authUser.uid}`);
+  const snapshot = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { displayName, email } = authUser;
+    const createdAt = new Date();
+    try {
+      userRef.set({
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (error) {
+      alert("Error saving user to firestore...");
+    }
+  }
+
+  return userRef;
+}
 
 export default firebase;

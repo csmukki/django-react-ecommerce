@@ -2,13 +2,8 @@ import React from 'react';
 
 import "./custom-input.styles.scss";
 
-const CustomInput = ({label, errors, ...rest}) => (
+const CustomInput = ({label, error, ...rest}) => (
     <div className="group">
-        {
-            errors ? (
-                <div className="error-message">{errors.name}</div>
-            ) : null
-        }
         <input 
             className="custom-input"
             required
@@ -21,6 +16,13 @@ const CustomInput = ({label, errors, ...rest}) => (
             </label> : 
             null
         }
+        <div className="error">
+            {
+                error ? (
+                    <div className="error-message">{error}</div>
+                ) : null
+            }
+        </div>
 
     </div>
 );

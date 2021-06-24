@@ -2,6 +2,7 @@ import React from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import Joi from "joi-browser";
+import { withRouter } from 'react-router-dom';
 
 import { setUserSignUp } from '../../redux/auth/auth.actions';
 
@@ -9,7 +10,8 @@ import {selectSignUpUsernameField,
         selectSignUpEmailField, 
         selectSignUpPasswordField, 
         selectSignUpErrorsField, 
-        selectSignUpConfirmPasswordField} from '../../redux/auth/auth.selectors';
+        selectSignUpConfirmPasswordField,
+        selectSignUp} from '../../redux/auth/auth.selectors';
 
 
 import CustomInput from '../custom-input/custom-input.component';
@@ -46,7 +48,7 @@ class SignUp extends Form {
                         value={username}
                         onChange={this.handleChange}
                         label="Username"
-                        error={errors}
+                        error={errors['username']}
                     />
                     <CustomInput 
                         name="email"
@@ -54,7 +56,7 @@ class SignUp extends Form {
                         value={email}
                         onChange={this.handleChange}
                         label="Email"
-                        error={errors}
+                        error={errors['email']}
                     />
                     <CustomInput 
                         name="password"
@@ -62,7 +64,7 @@ class SignUp extends Form {
                         value={password}
                         onChange={this.handleChange}
                         label="Password"
-                        error={errors}
+                        error={errors['password']}
                     />
                     <CustomInput 
                         name="confirmPassword"
@@ -70,7 +72,7 @@ class SignUp extends Form {
                         value={confirmPassword}
                         onChange={this.handleChange}
                         label="Confirm Password"
-                        error={errors}
+                        error={errors['confirmPassword']}
                     />
                     <button>SIGN UP</button>
                 </form>
@@ -85,7 +87,8 @@ const mapStateToProps = createStructuredSelector({
     email: selectSignUpEmailField, 
     password: selectSignUpPasswordField, 
     confirmPassword: selectSignUpConfirmPasswordField, 
-    errors: selectSignUpErrorsField
+    errors: selectSignUpErrorsField, 
+    signUp: selectSignUp
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -93,4 +96,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));
