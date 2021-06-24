@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Joi from "joi-browser";
 import { withRouter } from 'react-router-dom';
 
+import "./sign-up.styles.scss";
+
 import { setUserSignUp } from '../../redux/auth/auth.actions';
 
 import {selectSignUpUsernameField, 
@@ -16,6 +18,7 @@ import {selectSignUpUsernameField,
 
 import CustomInput from '../custom-input/custom-input.component';
 import Form from '../form/form.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 
 
@@ -74,7 +77,7 @@ class SignUp extends Form {
                         label="Confirm Password"
                         error={errors['confirmPassword']}
                     />
-                    <button>SIGN UP</button>
+                   <CustomButton>SIGN UP</CustomButton>
                 </form>
             </div>
         );

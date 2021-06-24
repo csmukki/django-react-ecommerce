@@ -1,6 +1,6 @@
 import React from 'react';
 import Joi from "joi-browser";
-import { auth } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 
 
@@ -34,12 +34,20 @@ class Form extends React.Component {
         return null;
       };
       
-      handleSubmit = (event) => {
+      handleSubmit = async (event) => {
         event.preventDefault();
-        const { history, username, email, password, confirmPassword } = this.props;
-        if (password !== confirmPassword) {
-          alert("Password should be equal...");
-          return;
+        const {history, username, email, password, confirmPassword} = this.props;
+        if(password !== confirmPassword) {
+          alert("Password should be equal", username);
+        }else {
+          try {
+            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+            return await createUserProfileDocument(user, username) ? (
+              history.push('/')
+            ) : null;
+          }catch(error) {
+            alert("ERROR in creating user...")
+          }
         }
       };
 

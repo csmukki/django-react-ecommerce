@@ -2,10 +2,13 @@ import React from 'react';
 import CustomInput from '../custom-input/custom-input.component';
 import { connect } from 'react-redux';
 
+import "./sign-in.styles.scss";
+
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import { setUserSignIn } from '../../redux/auth/auth.actions';
 import { createStructuredSelector } from 'reselect';
 import { selectSignIn, selectSignInEmailField, selectSignInPasswordField } from '../../redux/auth/auth.selectors';
+import CustomButton from '../custom-button/custom-button.component';
 
 
 class SignIn extends React.Component {
@@ -48,12 +51,13 @@ class SignIn extends React.Component {
                         label="Password"
                     />
                     <div className="buttons">
-                        <button 
+                        <CustomButton 
                             onClick={() => auth.signInWithEmailAndPassword(email, password)}
-                        >Sign In</button>
-                        <button onClick={
-                            () => signInWithGoogle()
-                        }>Sign in with google</button>
+                        >SIGN IN</CustomButton>
+                        <CustomButton
+                            isGoogleSignIn
+                            onClick={() => signInWithGoogle()}
+                        >Sign in with google</CustomButton>
                     </div>
                 </form>
             </div>
