@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/github.io/django-react-ecommerce/static/css/main.810c73a9.chunk.css",
-    "main.js": "/github.io/django-react-ecommerce/static/js/main.5a57361f.chunk.js",
-    "main.js.map": "/github.io/django-react-ecommerce/static/js/main.5a57361f.chunk.js.map",
-    "runtime-main.js": "/github.io/django-react-ecommerce/static/js/runtime-main.526c8897.js",
-    "runtime-main.js.map": "/github.io/django-react-ecommerce/static/js/runtime-main.526c8897.js.map",
-    "static/js/2.b3a82a9e.chunk.js": "/github.io/django-react-ecommerce/static/js/2.b3a82a9e.chunk.js",
-    "static/js/2.b3a82a9e.chunk.js.map": "/github.io/django-react-ecommerce/static/js/2.b3a82a9e.chunk.js.map",
-    "index.html": "/github.io/django-react-ecommerce/index.html",
-    "static/css/main.810c73a9.chunk.css.map": "/github.io/django-react-ecommerce/static/css/main.810c73a9.chunk.css.map",
-    "static/js/2.b3a82a9e.chunk.js.LICENSE.txt": "/github.io/django-react-ecommerce/static/js/2.b3a82a9e.chunk.js.LICENSE.txt",
-    "static/media/cart-icon.cfde1dec.svg": "/github.io/django-react-ecommerce/static/media/cart-icon.cfde1dec.svg",
-    "static/media/header-icon.8f695331.webp": "/github.io/django-react-ecommerce/static/media/header-icon.8f695331.webp"
+    "main.css": "/github.io/shop/static/css/main.810c73a9.chunk.css",
+    "main.js": "/github.io/shop/static/js/main.5a57361f.chunk.js",
+    "main.js.map": "/github.io/shop/static/js/main.5a57361f.chunk.js.map",
+    "runtime-main.js": "/github.io/shop/static/js/runtime-main.8b165bd4.js",
+    "runtime-main.js.map": "/github.io/shop/static/js/runtime-main.8b165bd4.js.map",
+    "static/js/2.9f222463.chunk.js": "/github.io/shop/static/js/2.9f222463.chunk.js",
+    "static/js/2.9f222463.chunk.js.map": "/github.io/shop/static/js/2.9f222463.chunk.js.map",
+    "index.html": "/github.io/shop/index.html",
+    "static/css/main.810c73a9.chunk.css.map": "/github.io/shop/static/css/main.810c73a9.chunk.css.map",
+    "static/js/2.9f222463.chunk.js.LICENSE.txt": "/github.io/shop/static/js/2.9f222463.chunk.js.LICENSE.txt",
+    "static/media/cart-icon.cfde1dec.svg": "/github.io/shop/static/media/cart-icon.cfde1dec.svg",
+    "static/media/header-icon.8f695331.webp": "/github.io/shop/static/media/header-icon.8f695331.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.526c8897.js",
-    "static/js/2.b3a82a9e.chunk.js",
+    "static/js/runtime-main.8b165bd4.js",
+    "static/js/2.9f222463.chunk.js",
     "static/css/main.810c73a9.chunk.css",
     "static/js/main.5a57361f.chunk.js"
   ]
