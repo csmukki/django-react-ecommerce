@@ -7,6 +7,7 @@ import Homepage from "./pages/homepage/homepage.component";
 import PageNotFound from "./components/page-not-found/page-not-found.component";
 import Header from "./components/header/header.component";
 import ShopPage from "./pages/shop/shop.component";
+import SignInSignUpPage from "./pages/sign-in-sign-up/signin-signup-page.component";
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path="/page-not-found" component={PageNotFound} />
+          <Route path="/sign-in" component={SignInSignUpPage} />
           <Route path="/shop" component={ShopPage} />
           <Route exact path="/" component={Homepage} />
           <Redirect to="/page-not-found" />
